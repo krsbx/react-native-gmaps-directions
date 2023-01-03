@@ -2,11 +2,12 @@ import { PRECISION } from './constant';
 import { decode } from './decoder';
 import type { LatLng, ValueOf } from './types';
 
-export const resolveRoutes = (
-  route: google.maps.DirectionsRoute & {
-    precision: ValueOf<typeof PRECISION>;
-  }
-) => ({
+export const resolveRoutes = ({
+  precision = PRECISION.LOW,
+  ...route
+}: google.maps.DirectionsRoute & {
+  precision: ValueOf<typeof PRECISION>;
+}) => ({
   distance:
     route.legs.reduce(
       (carry, curr) => carry + (curr?.distance?.value ?? 0),
@@ -22,7 +23,7 @@ export const resolveRoutes = (
       0
     ) / 60,
   coordinates:
-    route.precision === PRECISION.LOW
+    precision === PRECISION.LOW
       ? decode([
           {
             polyline:
