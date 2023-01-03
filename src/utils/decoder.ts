@@ -1,5 +1,6 @@
 import type { LatLng } from './types';
 
+// Ref: https://github.com/bramus/react-native-maps-directions/blob/master/src/MapViewDirections.js#L44
 export const decode = (
   steps: Pick<google.maps.DirectionsStep, 'polyline'>[]
 ) => {

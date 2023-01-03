@@ -16,14 +16,6 @@ const MapViewDirections = (props: MapViewDirectionsProps) => {
   };
 
   useEffect(() => {
-    fetchRoutesData(props).then((value) => {
-      if (!value) return;
-
-      setCoordinates(value.coordinates);
-    });
-  }, []);
-
-  useEffect(() => {
     if (
       _.isEqual(prevProps?.origin, props.origin) &&
       _.isEqual(prevProps?.destination, props.destination) &&

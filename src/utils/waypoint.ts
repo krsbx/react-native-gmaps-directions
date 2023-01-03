@@ -1,6 +1,7 @@
 import { WAYPOINT_LIMIT } from './constant';
 import type { LatLngString } from './types';
 
+// Ref: https://github.com/bramus/react-native-maps-directions/blob/master/src/MapViewDirections.js#L114
 export const convertWaypoint = ({
   splitWaypoints,
   initialDestination,

@@ -1,0 +1,9 @@
+/node_modules
+/src
+/*.tgz
+.env*
+.eslintrc.json
+.prettierrc.json
+jest.config.js
+tsconfig.json
+/test
