@@ -13,7 +13,7 @@ export const waypointToQuery = (options: MapViewDirectionsParams) => {
           return Object.values(waypoint).join(',');
         }
 
-        return waypoint;
+        return waypoint.toString();
       })
       .join('|');
   }

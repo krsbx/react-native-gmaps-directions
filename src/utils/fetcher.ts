@@ -1,3 +1,4 @@
+import axios from 'axios';
 import { convertUrl } from './url';
 import type { LatLng, MapViewDirectionsParams } from './types';
 import { resolveRoutes } from './resolver';
@@ -7,7 +8,7 @@ export const fetchRoute = async (options: MapViewDirectionsParams) => {
   const url = convertUrl(options);
 
   try {
-    const json = await (await fetch(url)).json();
+    const json = await (await axios.get(url)).data;
 
     if (json.status !== 'OK') {
       const errorMessage = json.error_message || json.status || 'Unknown error';
