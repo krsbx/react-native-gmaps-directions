@@ -20,6 +20,12 @@ export const TIME_PRECISION = {
   NONE: 'none',
 } as const;
 
+export const TRAFFIC_MODEL = {
+  BEST_GUESS: 'best_guess',
+  PESSIMISTIC: 'pessimistic',
+  OPTIMISTIC: 'optimistic',
+} as const;
+
 export const PRECISION = {
   HIGH: 'high',
   LOW: 'low',

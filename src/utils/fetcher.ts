@@ -82,6 +82,7 @@ export const fetchRoutesData = async (options: MapViewDirectionsParams) => {
       routes.map(({ destination, origin, waypoints }, index) =>
         fetchRoutes({
           ...rest,
+          timePrecision,
           destination,
           origin,
           waypoints,

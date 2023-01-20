@@ -4,6 +4,7 @@ import type {
   DIRECTION_MODE,
   PRECISION,
   TIME_PRECISION,
+  TRAFFIC_MODEL,
 } from './constant';
 
 export type KeyOf<T> = keyof T;
@@ -53,7 +54,8 @@ export type MapViewDirectionsParams = {
   directionsServiceBaseUrl?: string;
   region?: string;
   precision?: ValueOf<typeof PRECISION>;
-  timePrecision?: ValueOf<typeof TIME_PRECISION>;
+  timePrecision?: ValueOf<typeof TIME_PRECISION> | string;
+  trafficModel?: ValueOf<typeof TRAFFIC_MODEL>;
   channel?: string;
   onReady?: (result: Result) => void;
   onStart?: (args: {
