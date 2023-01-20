@@ -7,6 +7,8 @@ export const convertUrl = ({
   precision = PRECISION.LOW,
   language = 'en',
   directionsServiceBaseUrl = BASE_URL,
+  timePrecision = 'none',
+  trafficModel,
   ...options
 }: MapViewDirectionsParams) => {
   const query: string[] = [];
@@ -65,11 +67,20 @@ export const convertUrl = ({
     query.push(`region=${options.region}`);
   }
 
-  if (
-    typeof options.timePrecision === 'string' &&
-    options.timePrecision.trim() !== ''
-  ) {
-    query.push(`departure_time=${options.timePrecision.trim()}`);
+  if (typeof timePrecision === 'string' && timePrecision.trim() !== '') {
+    switch (timePrecision) {
+      case 'none':
+      case 'now':
+        query.push(`departure_time=now`);
+        break;
+      default:
+        query.push(`departure_time=${timePrecision.trim()}`);
+        break;
+    }
+  }
+
+  if (typeof trafficModel === 'string' && trafficModel.trim() !== '') {
+    query.push(`traffic_model=${trafficModel}`);
   }
 
   if (typeof options.channel === 'string' && options.channel.trim()) {
