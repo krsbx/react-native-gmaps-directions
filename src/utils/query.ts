@@ -15,7 +15,11 @@ export const waypointToQuery = (options: MapViewDirectionsParams) => {
 
         return waypoint.toString();
       })
-      .join('|');
+      .join(options.avoidStop ? '|via:' : '|');
+  }
+
+  if (options.avoidStop) {
+    waypoints = `via:${waypoints}`;
   }
 
   if (options.optimizeWaypoints) {
