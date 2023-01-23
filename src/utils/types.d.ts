@@ -57,6 +57,7 @@ export type MapViewDirectionsParams = {
   timePrecision?: ValueOf<typeof TIME_PRECISION> | string;
   trafficModel?: ValueOf<typeof TRAFFIC_MODEL>;
   channel?: string;
+  avoidStop?: boolean;
   onReady?: (result: Result) => void;
   onStart?: (args: {
     origin?: LatLngString;

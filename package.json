@@ -1,6 +1,6 @@
 {
   "name": "react-native-gmaps-directions",
-  "version": "1.1.0",
+  "version": "1.1.4",
   "description": "Directions component for React Native Maps",
   "main": "dist/index.js",
   "scripts": {
